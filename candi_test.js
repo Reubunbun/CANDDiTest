@@ -28,10 +28,16 @@ request(options, function (err, response, html) {
         //Start with meta tags
         $("meta").filter(function () {
             //Check if name attribute is author and the content attribute exists
-            var name = String($(this).attr("name"));
-            var content = String($(this).attr("content"));
+            var name    = String( $(this).attr("name")    );
+            var content = String( $(this).attr("content") );
             console.log(name + ", " + content);
-        });
+            if (name === "author") {
+                information.names.push(content);
+            } else if (name === "description") {
+                information.description = content;
+            }
+
+        } )
 
         //Search the links in the footer
         $("footer").find("a").each(function () {
