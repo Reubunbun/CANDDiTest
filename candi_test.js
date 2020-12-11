@@ -20,32 +20,36 @@ var information = {
     links:       []
 };
 var link;
+
 request(options, function (err, response, html) {
     console.log("err=" + err + ", statusCode=" + response.statusCode)
     if (!err && response.statusCode == 200) {
-        var $ = cheerio.load(html);
+        const $ = cheerio.load(html);
 
         //Start with meta tags
         $("meta").filter(function () {
             //Check if name attribute is author and the content attribute exists
             var name    = String( $(this).attr("name")    );
             var content = String( $(this).attr("content") );
-            console.log(name + ", " + content);
             if (name === "author") {
                 information.names.push(content);
             } else if (name === "description") {
                 information.description = content;
             }
+        });
 
-        } )
-
-        //Search the links in the footer
-        $("footer").find("a").each(function () {
-            if ($(this).attr("href")) {
-                link = String( $(this).attr("href") );
+        $("footer").find('*').each(function () {
+            //Check for links
+            if ($(this).prop("nodeName") === "A" && $(this).attr("href")) {
+                link = String($(this).attr("href"));
                 if (link.startsWith("http") && information.links.indexOf(link) === -1) {
                     information.links.push(link);
                 }
+            //Check for numbers/emails/places
+            } else if ($(this).text()) {
+                checkKnwl($(this).text(), "phones", information, knwlInstance);
+                checkKnwl($(this).text(), "emails", information, knwlInstance);
+                checkKnwl($(this).text(), "places", information, knwlInstance);
             }
         });
 
@@ -54,3 +58,32 @@ request(options, function (err, response, html) {
         console.log("Could not connect to website.");
     }
 });
+
+
+function checkKnwl(text, type, info, knwl) {
+    //Checks text for type (phones/places/emails), and adds to the information object if found.
+    knwl.init(text);
+    switch (type) {
+        case "emails":
+            var emails = knwl.get("emails");
+            if (emails.length > 0) {
+                for (let i = 0; i < emails.length; i++) {
+                    if (info.emails.indexOf(emails[i].address) === -1) info.emails.push(emails[i].address);
+                }
+            }
+        case "places":
+            var places = knwl.get("places");
+            if (places.length > 0) {
+                for (let i = 0; i < places.length; i++) {
+                    if (info.addresses.indexOf(places[i].place) === -1) info.addresses.push(places[i].place);
+                }
+            }
+        case "phones":
+            var phones = knwl.get("phones");
+            if (phones.length > 0) {
+                for (let i = 0; i < phones.length; i++) {
+                    if (info.numbers.indexOf(phones[i].phone) === -1) info.numbers.push(phones[i].phone);
+                }
+            }
+    }
+}
