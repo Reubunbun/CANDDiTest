@@ -5,7 +5,7 @@ const Knwl    = require("../node_modules/knwl.js");
 const request = require("../node_modules/request");
 const knwlInstance = new Knwl("english");
 
-const email  = "tim.langley@canddi.com";
+const email  = "tim.langley@ca.c";
 const domain = email.slice(email.indexOf('@') + 1);
 const options = {
     url: "https://www." + domain,
@@ -29,11 +29,10 @@ request(options, function (err, response, html) {
         //Start with meta tags
         $("meta").each(function () {
             //Check if name attribute is author and the content attribute exists
-            if ($(this).attr("name") === "author") {
+            if ($(this).attr("name") === "author")
                 information.names.push( $(this).attr("name") );
-            } else if ($(this).attr("content") === "description") {
+            else if ($(this).attr("content") === "description")
                 information.description = $(this).attr("content");
-            }
         });
 
         //Check for external links to crawl
@@ -41,9 +40,8 @@ request(options, function (err, response, html) {
         $("a").each(function () {
             link = $(this).attr("href");
             if (link) {
-                if (link.startsWith("http") && !link.includes(domain) && information.links.indexOf(link) === -1) {
+                if (link.startsWith("http") && !link.includes(domain) && information.links.indexOf(link) === -1)
                     information.links.push(link);
-                }
             }
         });
 
@@ -58,11 +56,10 @@ request(options, function (err, response, html) {
 
         console.log(information);
     } else {
-        if (err) {
+        if (err)
             console.log(err);
-        } else if (response.statusCode != 200) {
+        else if (response.statusCode != 200)
             console.log("HTTP error: " + response.statusCode);
-        }
     }
 });
 
