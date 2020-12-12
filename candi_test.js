@@ -5,7 +5,7 @@ const Knwl    = require("../node_modules/knwl.js");
 const request = require("../node_modules/request");
 const knwlInstance = new Knwl("english");
 
-const email  = "tim.langley@ca.c";
+const email  = "tim.langley@canddi.com/doesntexist/";
 const domain = email.slice(email.indexOf('@') + 1);
 const options = {
     url: "https://www." + domain,
@@ -22,7 +22,6 @@ var information = {
 };
 
 request(options, function (err, response, html) {
-    console.log("err=" + err + ", statusCode=" + response.statusCode);
     if (!err && response.statusCode == 200) {
         const $ = cheerio.load(html);
 
@@ -58,7 +57,7 @@ request(options, function (err, response, html) {
     } else {
         if (err)
             console.log(err);
-        else if (response.statusCode != 200)
+        else
             console.log("HTTP error: " + response.statusCode);
     }
 });
