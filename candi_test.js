@@ -5,62 +5,78 @@ const oKnwl    = require("../node_modules/knwl.js");
 const fRequest = require("../node_modules/request");
 const oKnwlInstance = new oKnwl("english");
 
-const sEmail  = "tim.langley@canddi.com";
-const sDomain = sEmail.slice(sEmail.indexOf('@') + 1);
-const oOptions = {
-    url: "https://www." + sDomain,
-    method: "GET"
-};
-
-var oInformation = {
-    sDescription: "",
-    pNames:       [],
-    pAddresses:   [],
-    pNumbers:     [],
-    pEmails:      [],
-    pLinks:       []
-};
-
-fRequest(oOptions, function (sErr, oResponse, oHtml) {
-    if (!sErr && oResponse.statusCode == 200) {
-        const $ = oCheerio.load(oHtml);
-
-        //Start with meta tags
-        $("meta").each(function () {
-            //Check if name attribute is author and the content attribute exists
-            if ($(this).attr("name") === "author")
-                oInformation.pNames.push( $(this).attr("content") );
-            else if ($(this).attr("name") === "description")
-                oInformation.sDescription = $(this).attr("content");
-        });
-
-        //Check for external links to crawl
-        var sLink;
-        $("a").each(function () {
-            sLink = $(this).attr("href");
-            if (sLink) {
-                if (sLink.startsWith("http") && !sLink.includes(sDomain) && oInformation.pLinks.indexOf(sLink) === -1)
-                    oInformation.pLinks.push(sLink);
-            }
-        });
-
-        $("footer").find('*').each(function () {
-            //Check for numbers/emails/places
-            if ($(this).text()) {
-                checkKnwl($(this).text(), "phones", oInformation, oKnwlInstance);
-                checkKnwl($(this).text(), "emails", oInformation, oKnwlInstance);
-                checkKnwl($(this).text(), "places", oInformation, oKnwlInstance);
-            }
-        });
-
-        console.log(oInformation);
-    } else {
-        if (sErr)
-            console.log(sErr);
-        else
-            console.log("HTTP error: " + oResponse.statusCode);
+if (process.argv.length != 3) {
+    console.log("Input one email");
+    return -1;
+} else {
+    oKnwlInstance.init( process.argv[2] );
+    const pFindEmail = oKnwlInstance.get("emails");
+    if (pFindEmail.length === 1)
+        crawlDomain( process.argv[2] );
+    else {
+        console.log("The email entered is invalid.");
+        return -1;
     }
-});
+}
+
+
+function crawlDomain(sEmail) {
+    const sDomain = sEmail.slice(sEmail.indexOf('@') + 1);
+    const oOptions = {
+        url: "https://www." + sDomain,
+        method: "GET"
+    };
+
+    var oInformation = {
+        sDescription: "",
+        pNames: [],
+        pAddresses: [],
+        pNumbers: [],
+        pEmails: [],
+        pLinks: []
+    };
+
+    fRequest(oOptions, function (sErr, oResponse, oHtml) {
+        if (!sErr && oResponse.statusCode == 200) {
+            const $ = oCheerio.load(oHtml);
+
+            //Start with meta tags
+            $("meta").each(function () {
+                //Check if name attribute is author and the content attribute exists
+                if ($(this).attr("name") === "author")
+                    oInformation.pNames.push($(this).attr("content"));
+                else if ($(this).attr("name") === "description")
+                    oInformation.sDescription = $(this).attr("content");
+            });
+
+            //Check for external links to crawl
+            var sLink;
+            $("a").each(function () {
+                sLink = $(this).attr("href");
+                if (sLink) {
+                    if (sLink.startsWith("http") && !sLink.includes(sDomain) && oInformation.pLinks.indexOf(sLink) === -1)
+                        oInformation.pLinks.push(sLink);
+                }
+            });
+
+            $("footer").find('*').each(function () {
+                //Check for numbers/emails/places
+                if ($(this).text()) {
+                    checkKnwl($(this).text(), "phones", oInformation, oKnwlInstance);
+                    checkKnwl($(this).text(), "emails", oInformation, oKnwlInstance);
+                    checkKnwl($(this).text(), "places", oInformation, oKnwlInstance);
+                }
+            });
+
+            console.log(oInformation);
+        } else {
+            if (sErr)
+                console.log(sErr);
+            else
+                console.log("HTTP error: " + oResponse.statusCode);
+        }
+    });
+}
 
 function checkKnwl(sText, sType, oInfo, oKnwl) {
     //Checks text for type (phones/places/emails), and adds to the information object if found.
