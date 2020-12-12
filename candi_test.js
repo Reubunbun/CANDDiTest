@@ -20,34 +20,29 @@ var information = {
     emails:      [],
     links:       []
 };
-var link;
 
 request(options, function (err, response, html) {
-    console.log("err=" + err + ", statusCode=" + response.statusCode)
+    console.log("err=" + err + ", statusCode=" + response.statusCode);
     if (!err && response.statusCode == 200) {
         const $ = cheerio.load(html);
 
-        var name;
-        var content;
         //Start with meta tags
         $("meta").each(function () {
             //Check if name attribute is author and the content attribute exists
-            name    = String( $(this).attr("name")    );
-            content = String( $(this).attr("content") );
-            if (name === "author") {
-                information.names.push(content);
-            } else if (name === "description") {
-                information.description = content;
+            if ($(this).attr("name") === "author") {
+                information.names.push( $(this).attr("name") );
+            } else if ($(this).attr("content") === "description") {
+                information.description = $(this).attr("content");
             }
         });
 
         //Check for external links to crawl
+        var link;
         $("a").each(function () {
-            if ($(this).attr("href")) {
-                link = String($(this).attr("href"));
+            link = $(this).attr("href");
+            if (link) {
                 if (link.startsWith("http") && !link.includes(domain) && information.links.indexOf(link) === -1) {
                     information.links.push(link);
-                    //if (link.indexOf("www.facebook.com") > -1) crawlFacebook(link, information);
                 }
             }
         });
@@ -71,50 +66,30 @@ request(options, function (err, response, html) {
     }
 });
 
-function crawlFacebook(link, info) {
-    //Crawl facebook page to find company location + phone number
-    //Doesn't work as facebook doesn't allow crawling like this, would be
-    //better to use their api with an access token.
-    const options = {
-        url: link.endsWith("/about/") ? link : link + "/about/",
-        method: "GET",
-        headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36 Edg/85.0.564.44" }
-    };
-    request(options, function (err, response, html) {
-        console.log("err=" + err + ", statusCode=" + response.statusCode)
-        if (!err && response.statusCode == 200) {
-            const $ = cheerio.load(html);
-            console.log($.text());
-        } else {
-            console.log("Could not connect to website.");
-        }
-    });
-}
-
 function checkKnwl(text, type, info, knwl) {
     //Checks text for type (phones/places/emails), and adds to the information object if found.
     knwl.init(text);
-    switch (type) {
-        case "emails":
-            var emails = knwl.get("emails");
-            if (emails.length > 0) {
-                for (let i = 0; i < emails.length; i++) {
-                    if (info.emails.indexOf(emails[i].address) === -1) info.emails.push(emails[i].address);
+    var foundText = knwl.get(type);
+    if (foundText.length > 0) {
+        switch (type) {
+            case "emails":
+                for (let i = 0; i < foundText.length; i++) {
+                    if (info.emails.indexOf(foundText[i].address) === -1)
+                        info.emails.push(foundText[i].address);
                 }
-            }
-        case "places":
-            var places = knwl.get("places");
-            if (places.length > 0) {
-                for (let i = 0; i < places.length; i++) {
-                    if (info.addresses.indexOf(places[i].place) === -1) info.addresses.push(places[i].place);
+                break;
+            case "places":
+                for (let i = 0; i < foundText.length; i++) {
+                    if (info.addresses.indexOf(foundText[i].place) === -1)
+                        info.addresses.push(foundText[i].place);
                 }
-            }
-        case "phones":
-            var phones = knwl.get("phones");
-            if (phones.length > 0) {
-                for (let i = 0; i < phones.length; i++) {
-                    if (info.numbers.indexOf(phones[i].phone) === -1) info.numbers.push(phones[i].phone);
+                break;
+            case "phones":
+                for (let i = 0; i < foundText.length; i++) {
+                    if (info.numbers.indexOf(foundText[i].phone) === -1)
+                        info.numbers.push(foundText[i].phone);
                 }
-            }
+                break;
+        }
     }
 }
