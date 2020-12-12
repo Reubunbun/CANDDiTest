@@ -1,89 +1,89 @@
 'use strict';
 
-const cheerio = require("../node_modules/cheerio");
-const Knwl    = require("../node_modules/knwl.js");
-const request = require("../node_modules/request");
-const knwlInstance = new Knwl("english");
+const oCheerio = require("../node_modules/cheerio");
+const oKnwl    = require("../node_modules/knwl.js");
+const fRequest = require("../node_modules/request");
+const oKnwlInstance = new oKnwl("english");
 
-const email  = "tim.langley@canddi.com/doesntexist/";
-const domain = email.slice(email.indexOf('@') + 1);
-const options = {
-    url: "https://www." + domain,
+const sEmail  = "tim.langley@canddi.com";
+const sDomain = sEmail.slice(sEmail.indexOf('@') + 1);
+const oOptions = {
+    url: "https://www." + sDomain,
     method: "GET"
 };
 
-var information = {
-    description: "",
-    names:       [],
-    addresses:   [],
-    numbers:     [],
-    emails:      [],
-    links:       []
+var oInformation = {
+    sDescription: "",
+    pNames:       [],
+    pAddresses:   [],
+    pNumbers:     [],
+    pEmails:      [],
+    pLinks:       []
 };
 
-request(options, function (err, response, html) {
-    if (!err && response.statusCode == 200) {
-        const $ = cheerio.load(html);
+fRequest(oOptions, function (sErr, oResponse, oHtml) {
+    if (!sErr && oResponse.statusCode == 200) {
+        const $ = oCheerio.load(oHtml);
 
         //Start with meta tags
         $("meta").each(function () {
             //Check if name attribute is author and the content attribute exists
             if ($(this).attr("name") === "author")
-                information.names.push( $(this).attr("name") );
-            else if ($(this).attr("content") === "description")
-                information.description = $(this).attr("content");
+                oInformation.pNames.push( $(this).attr("content") );
+            else if ($(this).attr("name") === "description")
+                oInformation.sDescription = $(this).attr("content");
         });
 
         //Check for external links to crawl
-        var link;
+        var sLink;
         $("a").each(function () {
-            link = $(this).attr("href");
-            if (link) {
-                if (link.startsWith("http") && !link.includes(domain) && information.links.indexOf(link) === -1)
-                    information.links.push(link);
+            sLink = $(this).attr("href");
+            if (sLink) {
+                if (sLink.startsWith("http") && !sLink.includes(sDomain) && oInformation.pLinks.indexOf(sLink) === -1)
+                    oInformation.pLinks.push(sLink);
             }
         });
 
         $("footer").find('*').each(function () {
             //Check for numbers/emails/places
             if ($(this).text()) {
-                checkKnwl($(this).text(), "phones", information, knwlInstance);
-                checkKnwl($(this).text(), "emails", information, knwlInstance);
-                checkKnwl($(this).text(), "places", information, knwlInstance);
+                checkKnwl($(this).text(), "phones", oInformation, oKnwlInstance);
+                checkKnwl($(this).text(), "emails", oInformation, oKnwlInstance);
+                checkKnwl($(this).text(), "places", oInformation, oKnwlInstance);
             }
         });
 
-        console.log(information);
+        console.log(oInformation);
     } else {
-        if (err)
-            console.log(err);
+        if (sErr)
+            console.log(sErr);
         else
-            console.log("HTTP error: " + response.statusCode);
+            console.log("HTTP error: " + oResponse.statusCode);
     }
 });
 
-function checkKnwl(text, type, info, knwl) {
+function checkKnwl(sText, sType, oInfo, oKnwl) {
     //Checks text for type (phones/places/emails), and adds to the information object if found.
-    knwl.init(text);
-    var foundText = knwl.get(type);
-    if (foundText.length > 0) {
-        switch (type) {
+    oKnwl.init(sText);
+    var pFoundText = oKnwl.get(sType);
+    if (pFoundText.length > 0) {
+        switch (sType) {
             case "emails":
-                for (let i = 0; i < foundText.length; i++) {
-                    if (info.emails.indexOf(foundText[i].address) === -1)
-                        info.emails.push(foundText[i].address);
+                for (let i = 0; i < pFoundText.length; i++) {
+                    if (oInfo.pEmails.indexOf(pFoundText[i].address) === -1)
+                        oInfo.pEmails.push(pFoundText[i].address);
                 }
                 break;
             case "places":
-                for (let i = 0; i < foundText.length; i++) {
-                    if (info.addresses.indexOf(foundText[i].place) === -1)
-                        info.addresses.push(foundText[i].place);
+                for (let i = 0; i < pFoundText.length; i++) {
+                    if (oInfo.pAddresses.indexOf(pFoundText[i].place) === -1)
+                        oInfo.pAddresses.push(pFoundText[i].place);
                 }
                 break;
             case "phones":
-                for (let i = 0; i < foundText.length; i++) {
-                    if (info.numbers.indexOf(foundText[i].phone) === -1)
-                        info.numbers.push(foundText[i].phone);
+                for (let i = 0; i < pFoundText.length; i++) {
+                    if (oInfo.pNumbers.indexOf(pFoundText[i].phone) === -1)
+                        oInfo.pNumbers.push(pFoundText[i].phone);
                 }
                 break;
         }
