@@ -110,7 +110,7 @@ function crawlContactPage(oInfo, oKnwl, sUrl, fCallback) {
 function traverseDOM($, oInfo, sStartNode) {
     //Checks the text of each node that has no children
     $(sStartNode).find("*:not(:has(*))").each(function () {
-        var text = $(this).clone().children().remove().end().text()
+        var text = $(this).text();
         if (text) {
             checkKnwl(text, "phones", oInfo, oKnwlInstance);
             checkKnwl(text, "emails", oInfo, oKnwlInstance);
