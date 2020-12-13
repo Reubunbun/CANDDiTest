@@ -7,7 +7,6 @@ const pEmails = [
     "l@platform-recruitment.com", "o@twitter.com", "y@linkedin.com", "e@oscar-tech.com"
 ]
 
-
 pEmails.forEach(executeTest);
 
 function executeTest(sEmail) {
@@ -25,7 +24,7 @@ function executeTest(sEmail) {
         sTestText += sEmail + "\n";
         sTestText += JSON.stringify(oInformation) + "\n\n";
         console.log("writing: " + sTestText);
-        fs.appendFileSync("results.txt", sTestText, (err) => {
+        fs.appendFile("results.txt", sTestText, (err) => {
             if (err) throw err;
         });
         console.log("task complete")
