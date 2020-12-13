@@ -57,18 +57,29 @@ function crawlDomain(sEmail) {
                 if (sLink) {
                     if (sLink.startsWith("http") && !sLink.includes(sDomain) && oInformation.pLinks.indexOf(sLink) === -1)
                         oInformation.pLinks.push(sLink);
-                    else if (sLink.includes("contact"))
+                    else if (sLink.includes("contact")) {
                         sContactLink = sLink;
+                        if (!sContactLink.startsWith("https:")) sContactLink = "https:" + sContactLink;
+                    }
                 }
             });
 
             const fSearchFooter = () => {
-                traverseDOM($, oInformation, "footer");
+                var sFooterNode;
+                //If there is no footer element, find section/div elements that have an id/class containing the string "foot"
+                if ($("footer").html())
+                    sFooterNode = "footer";
+                else if ($("section[id*='foot'], section[class*='foot']").html())
+                    sFooterNode = "section[id*=foot], section[class*='foot']";
+                else if ($("div[id*='foot'], div[class*='foot']").html())
+                    sFooterNode = "div[id*='foot'], div[class*='foot']";
+
+                if (sFooterNode) traverseDOM($, oInformation, sFooterNode);
                 console.log(oInformation);
             }
 
             if (sContactLink) {
-                crawlContactPage(oInformation, oKnwlInstance, sContactLink, function () {
+                crawlContactPage(oInformation, sContactLink, function () {
                     fSearchFooter();
                 });
             } else {
@@ -85,7 +96,7 @@ function crawlDomain(sEmail) {
 
 }
 
-function crawlContactPage(oInfo, oKnwl, sUrl, fCallback) {
+function crawlContactPage(oInfo, sUrl, fCallback) {
     //Will search the entire body for useful information
     const oOptions = {
         url:    sUrl,
@@ -112,26 +123,26 @@ function traverseDOM($, oInfo, sStartNode) {
     $(sStartNode).find("*:not(:has(*))").each(function () {
         var text = $(this).text();
         if (text) {
-            checkKnwl(text, "phones", oInfo, oKnwlInstance);
-            checkKnwl(text, "emails", oInfo, oKnwlInstance);
+            checkKnwl(oInfo, text, "phones");
+            checkKnwl(oInfo, text, "emails");
         }
     });
 }
 
-function checkKnwl(sText, sType, oInfo, oKnwl) {
+function checkKnwl(oInfo, sText, sType) {
     //Checks text for type (phones/places/emails), and adds to the information object if found.
     switch (sType) {
         case "phones":
             sText = sText.replace(/[^0-9]+/g, ""); //RegEx to remove any non numeric characters
-            oKnwl.init(sText);
-            var pFoundText = oKnwl.get("phones");
+            oKnwlInstance.init(sText);
+            var pFoundText = oKnwlInstance.get("phones");
             for (let i = 0; i < pFoundText.length; i++) {
                 if (oInfo.pNumbers.indexOf(pFoundText[i].phone) === -1)
                     oInfo.pNumbers.push(pFoundText[i].phone);
             }
         case "emails":
-            oKnwl.init(sText);
-            var pFoundText = oKnwl.get("emails");
+            oKnwlInstance.init(sText);
+            var pFoundText = oKnwlInstance.get("emails");
             for (let i = 0; i < pFoundText.length; i++) {
                 if (oInfo.pEmails.indexOf(pFoundText[i].address) === -1)
                     oInfo.pEmails.push(pFoundText[i].address);
