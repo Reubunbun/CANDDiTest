@@ -18,6 +18,7 @@ function main() {
     } else {
         oKnwlInstance.init(process.argv[2]);
         const pFindEmail = oKnwlInstance.get("emails");
+        console.log(pFindEmail);
         if (pFindEmail.length === 1) {
             var oInformation = {
                 sError:       "",
@@ -69,11 +70,13 @@ function crawlDomain(sEmail, oInformation, fCallback) {
                         oInformation.pLinks.push(sLink);
                     else if (sLink.includes("contact")) {
                         if (sLink.startsWith("//"))
-                            sContactLink = "https:" + sContactLink;
+                            sContactLink = "https:" + sLink;
                         else if (sLink.startsWith("/"))
-                            sContactLink = oOptions.url + sContactLink;
+                            sContactLink = oOptions.url + sLink;
                         else if (!sLink.includes('/'))
-                            sContactLink = oOptions.url + "/" + sContactLink;
+                            sContactLink = oOptions.url + "/" + sLink;
+                        else
+                            sContactLink = sLink;
                     }
                 }
             });
