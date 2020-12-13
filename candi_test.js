@@ -4,36 +4,46 @@ const oCheerio = require("../node_modules/cheerio");
 const oKnwl    = require("../node_modules/knwl.js");
 const fRequest = require("../node_modules/request");
 const oKnwlInstance = new oKnwl("english");
+module.exports = crawlDomain;
 
-if (process.argv.length != 3) {
-    console.log("Input one email");
-    return -1;
-} else {
-    oKnwlInstance.init( process.argv[2] );
-    const pFindEmail = oKnwlInstance.get("emails");
-    if (pFindEmail.length === 1) {
-        crawlDomain(process.argv[2]);
-    } else {
-        console.log("The email entered is invalid.");
-        return -1;
-    }
+if (require.main === module) {
+    main();
 }
 
 
-function crawlDomain(sEmail) {
+function main() {
+    if (process.argv.length != 3) {
+        console.log("Input one email");
+        return -1;
+    } else {
+        oKnwlInstance.init(process.argv[2]);
+        const pFindEmail = oKnwlInstance.get("emails");
+        if (pFindEmail.length === 1) {
+            var oInformation = {
+                sError:       "",
+                sDescription: "",
+                pNames:       [],
+                pAddresses:   [],
+                pNumbers:     [],
+                pEmails:      [],
+                pLinks:       []
+            };
+
+            crawlDomain(process.argv[2], oInformation, function () {
+                console.log(oInformation);
+            });
+        } else {
+            console.log("The email entered is invalid.");
+            return -1;
+        }
+    }
+}
+
+function crawlDomain(sEmail, oInformation, fCallback) {
     const sDomain = sEmail.slice(sEmail.indexOf('@') + 1);
     const oOptions = {
         url: "https://www." + sDomain,
         method: "GET"
-    };
-
-    var oInformation = {
-        sDescription: "",
-        pNames: [],
-        pAddresses: [],
-        pNumbers: [],
-        pEmails: [],
-        pLinks: []
     };
 
     fRequest(oOptions, function (sErr, oResponse, oHtml) {
@@ -58,8 +68,12 @@ function crawlDomain(sEmail) {
                     if (sLink.startsWith("http") && !sLink.includes(sDomain) && oInformation.pLinks.indexOf(sLink) === -1)
                         oInformation.pLinks.push(sLink);
                     else if (sLink.includes("contact")) {
-                        sContactLink = sLink;
-                        if (!sContactLink.startsWith("https:")) sContactLink = "https:" + sContactLink;
+                        if (sLink.startsWith("//"))
+                            sContactLink = "https:" + sContactLink;
+                        else if (sLink.startsWith("/"))
+                            sContactLink = oOptions.url + sContactLink;
+                        else if (!sLink.includes('/'))
+                            sContactLink = oOptions.url + "/" + sContactLink;
                     }
                 }
             });
@@ -75,7 +89,7 @@ function crawlDomain(sEmail) {
                     sFooterNode = "div[id*='foot'], div[class*='foot']";
 
                 if (sFooterNode) traverseDOM($, oInformation, sFooterNode);
-                console.log(oInformation);
+                fCallback();
             }
 
             if (sContactLink) {
@@ -88,9 +102,10 @@ function crawlDomain(sEmail) {
 
         } else {
             if (sErr)
-                console.log(sErr);
+                oInformation.sError = sErr;
             else
-                console.log("HTTP error: " + oResponse.statusCode);
+                oInformation.sError = "HTTP error: " + oResponse.statusCode;
+            fCallback();
         }
     });
 
