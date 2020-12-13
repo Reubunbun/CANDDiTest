@@ -23,10 +23,8 @@ function executeTest(sEmail) {
     fCrawlDomain(sEmail, oInformation, function () {
         sTestText += sEmail + "\n";
         sTestText += JSON.stringify(oInformation) + "\n\n";
-        console.log("writing: " + sTestText);
         fs.appendFile("results.txt", sTestText, (err) => {
             if (err) throw err;
         });
-        console.log("task complete")
     });
 }
