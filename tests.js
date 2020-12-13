@@ -8,10 +8,9 @@ const pEmails = [
 ]
 
 
-var sEmail;
-var sTestText = "";
-for (var i = 0; i < pEmails.length; i++) {
-    sEmail = pEmails[i];
+pEmails.forEach(executeTest);
+
+function executeTest(sEmail) {
     var oInformation = {
         sError: "",
         sDescription: "",
@@ -21,16 +20,14 @@ for (var i = 0; i < pEmails.length; i++) {
         pEmails: [],
         pLinks: []
     };
-
-    console.log("running with " + sEmail);
+    var sTestText = "";
     fCrawlDomain(sEmail, oInformation, function () {
-        sTestText += String(i) + "\n";
         sTestText += sEmail + "\n";
         sTestText += JSON.stringify(oInformation) + "\n\n";
         console.log("writing: " + sTestText);
         fs.appendFileSync("results.txt", sTestText, (err) => {
             if (err) throw err;
         });
+        console.log("task complete")
     });
-
 }
