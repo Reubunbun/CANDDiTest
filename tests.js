@@ -11,8 +11,10 @@ pEmails.forEach(executeTest);
 
 function executeTest(sEmail) {
     let sTestText = "";
+    let pHrStart = process.hrtime();
     fCrawlDomain(sEmail, oInfo => {
-        sTestText += sEmail + "\n";
+        let pHrEnd = process.hrtime(pHrStart);
+        sTestText += `Result for ${sEmail}, took ${pHrEnd[0]}s ${pHrEnd[1] / 1000000}ms\n`;
         sTestText += JSON.stringify(oInfo) + "\n\n";
         console.log("writing: " + sTestText);
         fs.appendFile("results.txt", sTestText, err => { if (err) throw err; } );
