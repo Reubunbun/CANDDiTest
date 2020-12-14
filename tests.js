@@ -10,21 +10,11 @@ const pEmails = [
 pEmails.forEach(executeTest);
 
 function executeTest(sEmail) {
-    var oInformation = {
-        sError: "",
-        sDescription: "",
-        pNames: [],
-        pAddresses: [],
-        pNumbers: [],
-        pEmails: [],
-        pLinks: []
-    };
-    var sTestText = "";
-    fCrawlDomain(sEmail, oInformation, function () {
+    let sTestText = "";
+    fCrawlDomain(sEmail, oInfo => {
         sTestText += sEmail + "\n";
-        sTestText += JSON.stringify(oInformation) + "\n\n";
-        fs.appendFile("results.txt", sTestText, (err) => {
-            if (err) throw err;
-        });
+        sTestText += JSON.stringify(oInfo) + "\n\n";
+        console.log("writing: " + sTestText);
+        fs.appendFile("results.txt", sTestText, err => { if (err) throw err; } );
     });
 }
