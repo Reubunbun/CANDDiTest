@@ -17,22 +17,9 @@ function main() {
         return -1;
     } else {
         oKnwlInstance.init(process.argv[2]);
-        const pFindEmail = oKnwlInstance.get("emails");
-        console.log(pFindEmail);
+        let pFindEmail = oKnwlInstance.get("emails");
         if (pFindEmail.length === 1) {
-            var oInformation = {
-                sError:       "",
-                sDescription: "",
-                pNames:       [],
-                pAddresses:   [],
-                pNumbers:     [],
-                pEmails:      [],
-                pLinks:       []
-            };
-
-            crawlDomain(process.argv[2], oInformation, function () {
-                console.log(oInformation);
-            });
+            crawlDomain(process.argv[2], oInfo => console.log(oInfo) );
         } else {
             console.log("The email entered is invalid.");
             return -1;
@@ -40,19 +27,28 @@ function main() {
     }
 }
 
-function crawlDomain(sEmail, oInformation, fCallback) {
+function crawlDomain(sEmail, fCallback) {
     const sDomain = sEmail.slice(sEmail.indexOf('@') + 1);
     const oOptions = {
         url: "https://www." + sDomain,
         method: "GET"
     };
+    let oInformation = {
+        pError: [],
+        sDescription: "",
+        pNames: [],
+        pAddresses: [],
+        pNumbers: [],
+        pEmails: [],
+        pLinks: []
+    };
 
-    fRequest(oOptions, function (sErr, oResponse, oHtml) {
+    fRequest(oOptions, (sErr, oResponse, oHtml) => {
         if (!sErr && oResponse.statusCode == 200) {
             const $ = oCheerio.load(oHtml);
 
             //Start with meta tags
-            $("meta").each(function () {
+            $("meta").each( function() {
                 //Check if name attribute is author and the content attribute exists
                 if ($(this).attr("name") === "author")
                     oInformation.pNames.push($(this).attr("content"));
@@ -61,9 +57,9 @@ function crawlDomain(sEmail, oInformation, fCallback) {
             });
 
             //Check for external links to crawl, and for contact page
-            var sLink;
-            var sContactLink;
-            $("a").each(function () {
+            let sLink;
+            let sContactLink;
+            $("a").each( function() {
                 sLink = $(this).attr("href");
                 if (sLink) {
                     if (sLink.startsWith("http") && !sLink.includes(sDomain) && oInformation.pLinks.indexOf(sLink) === -1)
@@ -82,7 +78,7 @@ function crawlDomain(sEmail, oInformation, fCallback) {
             });
 
             const fSearchFooter = () => {
-                var sFooterNode;
+                let sFooterNode;
                 //If there is no footer element, find section/div elements that have an id/class containing the string "foot"
                 if ($("footer").html())
                     sFooterNode = "footer";
@@ -92,23 +88,21 @@ function crawlDomain(sEmail, oInformation, fCallback) {
                     sFooterNode = "div[id*='foot'], div[class*='foot']";
 
                 if (sFooterNode) traverseDOM($, oInformation, sFooterNode);
-                fCallback();
+                fCallback(oInformation);
             }
 
             if (sContactLink) {
-                crawlContactPage(oInformation, sContactLink, function () {
-                    fSearchFooter();
-                });
+                crawlContactPage( oInformation, sContactLink, () => fSearchFooter() );
             } else {
                 fSearchFooter();
             }
 
         } else {
             if (sErr)
-                oInformation.sError = sErr;
+                oInformation.pError.push(sErr);
             else
-                oInformation.sError = "HTTP error: " + oResponse.statusCode;
-            fCallback();
+                oInformation.pError.push("HTTP error: " + oResponse.statusCode);
+            fCallback(oInformation);
         }
     });
 
@@ -128,9 +122,9 @@ function crawlContactPage(oInfo, sUrl, fCallback) {
             fCallback();
         } else {
             if (sErr)
-                console.log(sErr);
+                oInformation.pError.push(sErr);
             else
-                console.log("HTTP error: " + oResponse.statusCode);
+                oInformation.pError.push("HTTP error: " + oResponse.statusCode);
             fCallback();
         }
     });
@@ -139,7 +133,7 @@ function crawlContactPage(oInfo, sUrl, fCallback) {
 function traverseDOM($, oInfo, sStartNode) {
     //Checks the text of each node that has no children
     $(sStartNode).find("*:not(:has(*))").each(function () {
-        var text = $(this).text();
+        let text = $(this).text();
         if (text) {
             checkKnwl(oInfo, text, "phones");
             checkKnwl(oInfo, text, "emails");
@@ -149,18 +143,19 @@ function traverseDOM($, oInfo, sStartNode) {
 
 function checkKnwl(oInfo, sText, sType) {
     //Checks text for type (phones/places/emails), and adds to the information object if found.
+    let pFoundText;
     switch (sType) {
         case "phones":
             sText = sText.replace(/[^0-9]+/g, ""); //RegEx to remove any non numeric characters
             oKnwlInstance.init(sText);
-            var pFoundText = oKnwlInstance.get("phones");
+            pFoundText = oKnwlInstance.get("phones");
             for (let i = 0; i < pFoundText.length; i++) {
                 if (oInfo.pNumbers.indexOf(pFoundText[i].phone) === -1)
                     oInfo.pNumbers.push(pFoundText[i].phone);
             }
         case "emails":
             oKnwlInstance.init(sText);
-            var pFoundText = oKnwlInstance.get("emails");
+            pFoundText = oKnwlInstance.get("emails");
             for (let i = 0; i < pFoundText.length; i++) {
                 if (oInfo.pEmails.indexOf(pFoundText[i].address) === -1)
                     oInfo.pEmails.push(pFoundText[i].address);
