@@ -7,16 +7,39 @@ const pEmails = [
     "l@platform-recruitment.com", "o@twitter.com", "y@linkedin.com", "e@oscar-tech.com"
 ]
 
+let pTotalTime  = [0, 0];
+let iTotalNames = 0;
+let iTotalAddresses = 0;
+let iTotalNumbers = 0;
+let iTotalEmails = 0;
+let iTotalLinks = 0;
+let iCompletedTests = 0;
+
 pEmails.forEach(executeTest);
 
 function executeTest(sEmail) {
-    let sTestText = "";
-    let pHrStart = process.hrtime();
+    let pHrStart  = process.hrtime();
     fCrawlDomain(sEmail, oInfo => {
         let pHrEnd = process.hrtime(pHrStart);
-        sTestText += `Result for ${sEmail}, took ${pHrEnd[0]}s ${pHrEnd[1] / 1000000}ms\n`;
-        sTestText += JSON.stringify(oInfo) + "\n\n";
+        let sTestText = `Result for ${sEmail}, took ${pHrEnd[0]}s ${pHrEnd[1] / 1000000}ms\n${JSON.stringify(oInfo)}\n`;
+        sTestText += `Errors: ${oInfo.pError.length}, Names: ${oInfo.pNames.length}, Addresses: ${oInfo.pAddresses.length}, Numbers: ${oInfo.pNumbers.length}`;
+        sTestText += `, Emails: ${oInfo.pEmails.length}, Links: ${oInfo.pLinks.length}\n\n`;
         console.log("writing: " + sTestText);
-        fs.appendFile("results.txt", sTestText, err => { if (err) throw err; } );
+        fs.appendFile("results.txt", sTestText, err => { if (err) throw err; });
+
+        pTotalTime[0] += pHrEnd[0];
+        pTotalTime[1] += pHrEnd[1] / 1000000;
+        iTotalNames     += oInfo.pNames.length;
+        iTotalAddresses += oInfo.pAddresses.length;
+        iTotalNumbers   += oInfo.pNumbers.length;
+        iTotalEmails    += oInfo.pEmails.length;
+        iTotalLinks     += oInfo.pLinks.length;
+        iCompletedTests += 1;
+
+        if (iCompletedTests == pEmails.length) {
+            sTestText  = `Total time taken: ${pTotalTime[0]}s ${pTotalTime[1]}ms, total names: ${iTotalNames}, total addressses: ${iTotalAddresses}`;
+            sTestText += `, total numbers: ${iTotalNumbers}, total emails: ${iTotalEmails}, total links: ${iTotalLinks}\n\n\n`
+            fs.appendFile("results.txt", sTestText, err => { if (err) throw err; });
+        }
     });
 }
