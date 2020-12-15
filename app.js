@@ -34,13 +34,13 @@ function crawlDomain(sEmail, fCallback) {
         method: "GET"
     };
     let oInformation = {
-        pError: [],
+        pError:       [],
         sDescription: "",
-        pNames: [],
-        pAddresses: [],
-        pNumbers: [],
-        pEmails: [],
-        pLinks: []
+        pNames:       [],
+        pAddresses:   [],
+        pNumbers:     [],
+        pEmails:      [],
+        pLinks:       []
     };
 
     fRequest(oOptions, (sErr, oResponse, oHtml) => {
@@ -62,12 +62,20 @@ function crawlDomain(sEmail, fCallback) {
             $("a").each( function() {
                 sLink = $(this).attr("href");
                 if (sLink) {
+                    //External link
                     if (sLink.startsWith("http") && !sLink.includes(sDomain) && oInformation.pLinks.indexOf(sLink) === -1)
                         oInformation.pLinks.push(sLink);
+                    //Call link
+                    else if (sLink.startsWith("tel:"))
+                        checkKnwl(oInformation, sLink.slice(4), "phones")
+                    //Email link
+                    else if (sLink.startsWith("mailto:"))
+                        checkKnwl(oInformation, sLink.slice(7), "emails")
+                    //Contact page
                     else if (sLink.includes("contact")) {
                         if (sLink.startsWith("//"))
                             sContactLink = "https:" + sLink;
-                        else if (sLink.startsWith("/"))
+                        else if (sLink.startsWith('/'))
                             sContactLink = oOptions.url + sLink;
                         else if (!sLink.includes('/'))
                             sContactLink = oOptions.url + "/" + sLink;
@@ -115,18 +123,17 @@ function crawlContactPage(oInfo, sUrl, fCallback) {
         method: "GET"
     };
 
-    fRequest(oOptions, function (sErr, oResponse, oHtml) {
+    fRequest(oOptions, (sErr, oResponse, oHtml) => {
         if (!sErr && oResponse.statusCode == 200) {
             const $ = oCheerio.load(oHtml);
             traverseDOM($, oInfo, "body");
-            fCallback();
         } else {
             if (sErr)
                 oInformation.pError.push(sErr);
             else
                 oInformation.pError.push("HTTP error: " + oResponse.statusCode);
-            fCallback();
         }
+        fCallback();
     });
 }
 
