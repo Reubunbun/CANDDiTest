@@ -85,6 +85,22 @@ function crawlDomain(sEmail, fCallback) {
                 }
             });
 
+            //Check for schema object
+            if ($("script[type='application/ld+json']").html()) {
+                const oSchema = JSON.parse($("script[type='application/ld+json']").html());
+                if ('address' in oSchema) oInformation.pAddresses.push(oSchema.address);
+                if ('contactPoint' in oSchema) {
+                    if ('telephone' in oSchema.contactPoint) {
+                        if (oInformation.pNumbers.indexOf(oSchema.contactPoint.telephone) === -1)
+                            oInformation.pNumbers.push(oSchema.contactPoint.telephone);
+                    }
+                    if ('email' in oSchema.contactPoint) {
+                        if (oInformation.pEmails.indexOf(oSchema.contactPoint.email) === -1)
+                            oInformation.pEmails.push(oSchema.contactPoint.email);
+                    }
+                }
+            }
+
             if (sContactLink) {
                 crawlContactPage(oInformation, sContactLink, () => {
                     traverseDOM($, oInformation, "body");
