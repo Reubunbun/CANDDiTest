@@ -158,7 +158,27 @@ function checkKnwl(oInfo, sText, sType) {
     let pFoundText;
     switch (sType) {
         case "phones":
-            sText = sText.replace(/[^0-9]+/g, ""); //RegEx to remove any non numeric characters
+            const fRemoveChar = index => {
+                let sPart1 = sText.substring(0, index);
+                let sPart2 = sText.substring(index + 1, sText.length);
+                return sPart1 + sPart2;
+            }
+            const fIsDigit = char => parseInt(char) || char == '0'
+            for (let i = 0; i < sText.length; i++) {
+                if (i == 0) {
+                    if (!fIsDigit(sText[i]) && fIsDigit(sText[i + 1])) {
+                        sText = fRemoveChar(i);
+                    }
+                } else if (i == sText.length - 1) {
+                    if (!fIsDigit(sText[i]) && fIsDigit(sText[i - 1])) {
+                        sText = fRemoveChar(i);
+                    }
+                } else {
+                    if (!fIsDigit(sText[i]) && fIsDigit(sText[i - 1]) && fIsDigit(sText[i + 1])) {
+                        sText = fRemoveChar(i);
+                    }
+                }
+            }
             oKnwlInstance.init(sText);
             pFoundText = oKnwlInstance.get("phones");
             for (let i = 0; i < pFoundText.length; i++) {
