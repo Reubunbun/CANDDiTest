@@ -85,6 +85,7 @@ function crawlDomain(sEmail, fCallback) {
                 }
             });
 
+            /*
             const fSearchFooter = () => {
                 let sFooterNode;
                 //If there is no footer element, find section/div elements that have an id/class containing the string "foot"
@@ -97,12 +98,16 @@ function crawlDomain(sEmail, fCallback) {
 
                 if (sFooterNode) traverseDOM($, oInformation, sFooterNode);
                 fCallback(oInformation);
-            }
+            }*/
 
             if (sContactLink) {
-                crawlContactPage( oInformation, sContactLink, () => fSearchFooter() );
+                crawlContactPage(oInformation, sContactLink, () => {
+                    traverseDOM($, oInformation, "body");
+                    fCallback(oInformation);
+                });
             } else {
-                fSearchFooter();
+                traverseDOM($, oInformation, "body");
+                fCallback(oInformation);
             }
 
         } else {
