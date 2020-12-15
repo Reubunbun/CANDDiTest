@@ -85,21 +85,6 @@ function crawlDomain(sEmail, fCallback) {
                 }
             });
 
-            /*
-            const fSearchFooter = () => {
-                let sFooterNode;
-                //If there is no footer element, find section/div elements that have an id/class containing the string "foot"
-                if ($("footer").html())
-                    sFooterNode = "footer";
-                else if ($("section[id*='foot'], section[class*='foot']").html())
-                    sFooterNode = "section[id*=foot], section[class*='foot']";
-                else if ($("div[id*='foot'], div[class*='foot']").html())
-                    sFooterNode = "div[id*='foot'], div[class*='foot']";
-
-                if (sFooterNode) traverseDOM($, oInformation, sFooterNode);
-                fCallback(oInformation);
-            }*/
-
             if (sContactLink) {
                 crawlContactPage(oInformation, sContactLink, () => {
                     traverseDOM($, oInformation, "body");
@@ -145,10 +130,17 @@ function crawlContactPage(oInfo, sUrl, fCallback) {
 function traverseDOM($, oInfo, sStartNode) {
     //Checks the text of each node that has no children
     $(sStartNode).find("*:not(:has(*))").each(function () {
-        let text = $(this).text();
+        let text = $(this).html();
         if (text) {
-            checkKnwl(oInfo, text, "phones");
-            checkKnwl(oInfo, text, "emails");
+            if (text.includes("\n")) {
+                text.split("\n").forEach(line => {
+                    checkKnwl(oInfo, line, "phones");
+                    checkKnwl(oInfo, line, "emails");
+                });
+            } else {
+                checkKnwl(oInfo, text, "phones");
+                checkKnwl(oInfo, text, "emails");
+            }
         }
     });
 }
