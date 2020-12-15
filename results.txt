@@ -53,56 +53,166 @@ Errors: 1, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
 Total time taken: 48s 4667.2264ms, total names: 2, total addressses: 0, total numbers: 10, total emails: 5, total links: 58
 
 
-Result for tim@canddi.com/doesntexist/, took 0s 186.4579ms
+Result for tim@canddi.com/doesntexist/, took 0s 285.1675ms
 {"pError":["HTTP error: 404"],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":[]}
 Errors: 1, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
 
-Result for tim@canddi.com, took 0s 356.1212ms
+Result for tim@canddi.com, took 0s 724.0644ms
 {"pError":[],"sDescription":"See the people and businesses visiting your website with Website Visitor Tracking Software CANDDI. Web User ID Analytics for marketing and lead generation.","pNames":["Tim Langley"],"pAddresses":[],"pNumbers":[],"pEmails":["hello@canddi.com"],"pLinks":["https://www.capterra.com/p/178869/CANDDi/","https://www.facebook.com/thisiscanddi","https://twitter.com/CANDDi","https://www.youtube.com/channel/UCU7aljz8YC9IdPfxuxLY39g","https://www.linkedin.com/company/canddi-campaign-and-digital-intelligence-limited-/","https://goo.gl/maps/8bZkNzSKhLz","https://beta.companieshouse.gov.uk/company/07066939","https://ico.org.uk/ESDWebPages/Entry/Z2721392"]}
 Errors: 0, Names: 1, Addresses: 0, Numbers: 0, Emails: 1, Links: 8
 
-Result for n@quintondavies.com, took 0s 732.0584ms
-{"pError":[],"sDescription":"We’re doing something truly different. We’re investing in industry-leading technology that will transform the way we work. Ambitious? Get ahead in a job you love","pNames":[],"pAddresses":[],"pNumbers":["+44 (117) 363-6060","+0 (117) 363-6060","(123) 312-5000","+20 (191) 122-1027"],"pEmails":["admin@quintondavies.com"],"pLinks":["http://www.facebook.com/Quinton-Davies-2068133650101807","https://www.linkedin.com/company/11526173","https://twitter.com/QDJobs"]}
-Errors: 0, Names: 0, Addresses: 0, Numbers: 4, Emails: 1, Links: 3
-
-Result for n@betterplaced.com, took 0s 909.5042ms
-{"pError":[],"sDescription":"Better Placed introduces great candidates to great businesses, something we have been doing for nearly 20 years now. A lot has changed in that time but the fundamentals of what we do remain the same… meeting people, understanding what makes them tick and building our network. Learn More","pNames":[],"pAddresses":[],"pNumbers":["+0 (113) 236-4040","(200) 003-0000","(300) 004-0000","(400) 005-0000","(500) 006-0000","(600) 007-0000","(700) 008-0000","(800) 009-0000","+10 (000) 015-0000"],"pEmails":[],"pLinks":["https://www.linkedin.com/company/better-placed-recruitment","https://twitter.com/BetterPlaced","https://www.facebook.com/Better-Placed-Recruitment-977835688943106/?fref=ts","https://www.instagram.com/better_placed/","http://foreverdigital.co.uk"]}
-Errors: 0, Names: 0, Addresses: 0, Numbers: 9, Emails: 0, Links: 5
-
-Result for y@linkedin.com, took 0s 938.6782ms
-{"pError":[],"sDescription":"675 million+ members | Manage your professional identity. Build and engage with your professional network. Access knowledge, insights and opportunities.","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":[]}
-Errors: 0, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
-
-Result for l@platform-recruitment.com, took 0s 969.449ms
+Result for l@platform-recruitment.com, took 0s 781.7853ms
 {"pError":[],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":["+0 (208) 445-4577"],"pEmails":[],"pLinks":["https://www.instagram.com/platform_recruitment/","https://www.facebook.com/platformrecruitment/","https://www.linkedin.com/company-beta/1615645/","https://twitter.com/PlatformRecruit"]}
 Errors: 0, Names: 0, Addresses: 0, Numbers: 1, Emails: 0, Links: 4
 
-Result for rp506@reubenpricecs.co.uk, took 0s 974.6304ms
-{"pError":[],"sDescription":"","pNames":["Reuben Price"],"pAddresses":[],"pNumbers":["+0 (749) 743-6588","(212) 017-2020"],"pEmails":["Reuben.Luke.P@Gmail.com"],"pLinks":["http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1400","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1410","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1413","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1417","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=MTH1001","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=MTH1002","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM1407","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM1414","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2414","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2418","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2419","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2427","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2433","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2434","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM2426","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3401","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3408","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3412","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3423","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3426"]}
-Errors: 0, Names: 1, Addresses: 0, Numbers: 2, Emails: 1, Links: 20
+Result for n@quintondavies.com, took 0s 972.4156ms
+{"pError":[],"sDescription":"We’re doing something truly different. We’re investing in industry-leading technology that will transform the way we work. Ambitious? Get ahead in a job you love","pNames":[],"pAddresses":[],"pNumbers":["+44 (117) 363-6060","+0 (117) 363-6060"],"pEmails":["admin@quintondavies.com"],"pLinks":["http://www.facebook.com/Quinton-Davies-2068133650101807","https://www.linkedin.com/company/11526173","https://twitter.com/QDJobs"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 2, Emails: 1, Links: 3
 
-Result for r@lutonbennett.co.uk, took 1s 145.097ms
-{"pError":[],"sDescription":"Number 1 Engineering & Technical Recruitment Agency We provide engineering, manufacturing and technical sector recruitment across the UK from semi-skilled to Directorship level.","pNames":[],"pAddresses":[],"pNumbers":["+440 (117) 244-1963","+0 (117) 244-1963","+20 (200) 709-1379","+40 (000) 500-0020","(271) 742-9073"],"pEmails":["toby.woolf@lutonbennett.co.uk"],"pLinks":["https://www.linkedin.com/company/luton-bennett-limited","https://twitter.com/LutonBennett?lang=en-gb","https://www.boldidentities.com/"]}
-Errors: 0, Names: 0, Addresses: 0, Numbers: 5, Emails: 1, Links: 3
+Result for n@betterplaced.com, took 1s 75.4221ms
+{"pError":[],"sDescription":"Better Placed introduces great candidates to great businesses, something we have been doing for nearly 20 years now. A lot has changed in that time but the fundamentals of what we do remain the same… meeting people, understanding what makes them tick and building our network. Learn More","pNames":[],"pAddresses":[],"pNumbers":["+0 (113) 236-4040"],"pEmails":[],"pLinks":["https://www.linkedin.com/company/better-placed-recruitment","https://twitter.com/BetterPlaced","https://www.facebook.com/Better-Placed-Recruitment-977835688943106/?fref=ts","https://www.instagram.com/better_placed/","http://foreverdigital.co.uk"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 1, Emails: 0, Links: 5
 
-Result for o@twitter.com, took 1s 160.4301ms
+Result for y@linkedin.com, took 0s 878.1523ms
+{"pError":[],"sDescription":"675 million+ members | Manage your professional identity. Build and engage with your professional network. Access knowledge, insights and opportunities.","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":[]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
+
+Result for rp506@reubenpricecs.co.uk, took 1s 91.8538ms
+{"pError":[],"sDescription":"","pNames":["Reuben Price"],"pAddresses":[],"pNumbers":["+0 (749) 743-6588"],"pEmails":["Reuben.Luke.P@Gmail.com"],"pLinks":["http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1400","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1410","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1413","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1417","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=MTH1001","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=MTH1002","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM1407","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM1414","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2414","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2418","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2419","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2427","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2433","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2434","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM2426","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3401","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3408","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3412","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3423","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3426"]}
+Errors: 0, Names: 1, Addresses: 0, Numbers: 1, Emails: 1, Links: 20
+
+Result for o@twitter.com, took 1s 109.2257ms
 {"pError":[],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":[]}
 Errors: 0, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
 
-Result for almost@anemail@gmail.com, took 1s 239.8305ms
+Result for r@lutonbennett.co.uk, took 1s 432.1664ms
+{"pError":[],"sDescription":"Number 1 Engineering & Technical Recruitment Agency We provide engineering, manufacturing and technical sector recruitment across the UK from semi-skilled to Directorship level.","pNames":[],"pAddresses":[],"pNumbers":["(117) 244-1963","+0 (117) 244-1963"],"pEmails":["toby.woolf@lutonbennett.co.uk"],"pLinks":["https://www.linkedin.com/company/luton-bennett-limited","https://twitter.com/LutonBennett?lang=en-gb","https://www.boldidentities.com/"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 2, Emails: 1, Links: 3
+
+Result for almost@anemail@gmail.com, took 1s 463.6152ms
 {"pError":[],"sDescription":"Gmail is email that's intuitive, efficient and useful. 15 GB of storage, less spam and mobile access.","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":["https://accounts.google.com/signin/usernamerecovery?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&ss=1&scc=1&rm=false&osid=1&ltmpl=default&hl=en-GB","https://accounts.google.com/AccountChooser?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&rm=false&ltmpl=default&scc=1&ss=1&osid=1&emr=1","https://accounts.google.com/SignUp?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ltmpl=default","https://www.google.com/intl/en-GB/about","https://accounts.google.com/TOS?loc=GB&hl=en-GB&privacy=true","https://accounts.google.com/TOS?loc=GB&hl=en-GB","http://www.google.com/support/accounts?hl=en-GB"]}
 Errors: 0, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 7
 
-Result for e@oscar-tech.com, took 1s 689.4249ms
-{"pError":[],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":["+440 (161) 828-8140","+16 (000) 017-5000","(550) 006-5000","(500) 006-0000","(300) 006-0000","(500) 009-0000","(650) 007-5000","(250) 003-5000","(450) 006-5000","(600) 007-8000","(400) 004-5000","(180) 002-5000","(200) 002-5000","(280) 003-2000","(300) 004-0000","(300) 014-0000","(299) 993-0000","(550) 006-0000","(800) 009-0000","(850) 009-0000","(500) 006-5000","(320) 004-2000","(600) 006-5000","(550) 016-5000","+10 (000) 013-0000","+16 (000) 017-0000","(350) 005-0000","(500) 005-5000","(200) 003-5000","(300) 005-0000","(250) 003-8000","+300 (004) 500-0100","(300) 004-5000","(250) 004-0000","+30 (000) 450-0025","+15 (000) 017-0000","(450) 005-0000","(600) 008-0000","(350) 004-0000","(300) 014-5000","(400) 016-5000"],"pEmails":["enquiries@Oscar-Recruit.com"],"pLinks":["https://www.oscar-energy.com/","https://twitter.com/Oscarrecruit","https://www.instagram.com/oscarrecruit/","https://www.linkedin.com/company/oscar","http://enquiries@oscar-recruit.com","https://www.oscar-energy.com","https://oscar-construction.com","https://www.volcanic.co.uk/"]}
-Errors: 0, Names: 0, Addresses: 0, Numbers: 41, Emails: 1, Links: 8
+Result for e@oscar-tech.com, took 2s 54.774ms
+{"pError":[],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":["+440 (161) 828-8140","(161) 828-8140"],"pEmails":["enquiries@Oscar-Recruit.com"],"pLinks":["https://www.oscar-energy.com/","https://twitter.com/Oscarrecruit","https://www.instagram.com/oscarrecruit/","https://www.linkedin.com/company/oscar","http://enquiries@oscar-recruit.com","https://www.oscar-energy.com","https://oscar-construction.com","https://www.volcanic.co.uk/"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 2, Emails: 1, Links: 8
 
-Result for , took 21s 54.6337ms
+Result for , took 21s 54.1743ms
 {"pError":[{"errno":-4039,"code":"ETIMEDOUT","syscall":"connect","address":"92.242.132.24","port":443}],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":[]}
 Errors: 1, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
 
-Result for notanemail, took 21s 53.7401ms
+Result for notanemail, took 21s 51.9672ms
 {"pError":[{"errno":-4039,"code":"ETIMEDOUT","syscall":"connect","address":"92.242.132.24","port":443}],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":[]}
 Errors: 1, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
 
-Total time taken: 46s 6410.055599999999ms, total names: 2, total addressses: 0, total numbers: 62, total emails: 5, total links: 58
+Total time taken: 49s 4974.7838ms, total names: 2, total addressses: 0, total numbers: 9, total emails: 5, total links: 58
+
+
+Result for tim@canddi.com, took 0s 472.0632ms
+{"pError":[],"sDescription":"See the people and businesses visiting your website with Website Visitor Tracking Software CANDDI. Web User ID Analytics for marketing and lead generation.","pNames":["Tim Langley"],"pAddresses":[],"pNumbers":[],"pEmails":["hello@canddi.com"],"pLinks":["https://www.capterra.com/p/178869/CANDDi/","https://www.facebook.com/thisiscanddi","https://twitter.com/CANDDi","https://www.youtube.com/channel/UCU7aljz8YC9IdPfxuxLY39g","https://www.linkedin.com/company/canddi-campaign-and-digital-intelligence-limited-/","https://goo.gl/maps/8bZkNzSKhLz","https://beta.companieshouse.gov.uk/company/07066939","https://ico.org.uk/ESDWebPages/Entry/Z2721392"]}
+Errors: 0, Names: 1, Addresses: 0, Numbers: 0, Emails: 1, Links: 8
+
+Result for tim@canddi.com/doesntexist/, took 0s 475.4694ms
+{"pError":["HTTP error: 404"],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":[]}
+Errors: 1, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
+
+Result for n@quintondavies.com, took 0s 601.5681ms
+{"pError":[],"sDescription":"We’re doing something truly different. We’re investing in industry-leading technology that will transform the way we work. Ambitious? Get ahead in a job you love","pNames":[],"pAddresses":[],"pNumbers":["+44 (117) 363-6060","+0 (117) 363-6060"],"pEmails":["admin@quintondavies.com"],"pLinks":["http://www.facebook.com/Quinton-Davies-2068133650101807","https://www.linkedin.com/company/11526173","https://twitter.com/QDJobs"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 2, Emails: 1, Links: 3
+
+Result for rp506@reubenpricecs.co.uk, took 0s 779.8207ms
+{"pError":[],"sDescription":"","pNames":["Reuben Price"],"pAddresses":[],"pNumbers":["+0 (749) 743-6588"],"pEmails":["Reuben.Luke.P@Gmail.com"],"pLinks":["http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1400","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1410","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1413","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1417","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=MTH1001","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=MTH1002","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM1407","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM1414","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2414","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2418","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2419","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2427","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2433","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2434","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM2426","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3401","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3408","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3412","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3423","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3426"]}
+Errors: 0, Names: 1, Addresses: 0, Numbers: 1, Emails: 1, Links: 20
+
+Result for y@linkedin.com, took 0s 828.5909ms
+{"pError":[],"sDescription":"675 million+ members | Manage your professional identity. Build and engage with your professional network. Access knowledge, insights and opportunities.","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":[]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
+
+Result for l@platform-recruitment.com, took 0s 869.5374ms
+{"pError":[],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":["+0 (208) 445-4577"],"pEmails":[],"pLinks":["https://www.instagram.com/platform_recruitment/","https://www.facebook.com/platformrecruitment/","https://www.linkedin.com/company-beta/1615645/","https://twitter.com/PlatformRecruit"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 1, Emails: 0, Links: 4
+
+Result for o@twitter.com, took 1s 14.2602ms
+{"pError":[],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":["logo46x38@2x.png"],"pLinks":[]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 0, Emails: 1, Links: 0
+
+Result for almost@anemail@gmail.com, took 1s 218.1263ms
+{"pError":[],"sDescription":"Gmail is email that's intuitive, efficient and useful. 15 GB of storage, less spam and mobile access.","pNames":[],"pAddresses":[],"pNumbers":["(106) 990-2127"],"pEmails":[],"pLinks":["https://accounts.google.com/signin/usernamerecovery?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&ss=1&scc=1&rm=false&osid=1&ltmpl=default&hl=en-GB","https://accounts.google.com/AccountChooser?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&rm=false&ltmpl=default&scc=1&ss=1&osid=1&emr=1","https://accounts.google.com/SignUp?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ltmpl=default","https://www.google.com/intl/en-GB/about","https://accounts.google.com/TOS?loc=GB&hl=en-GB&privacy=true","https://accounts.google.com/TOS?loc=GB&hl=en-GB","http://www.google.com/support/accounts?hl=en-GB"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 1, Emails: 0, Links: 7
+
+Result for r@lutonbennett.co.uk, took 1s 355.273ms
+{"pError":[],"sDescription":"Number 1 Engineering & Technical Recruitment Agency We provide engineering, manufacturing and technical sector recruitment across the UK from semi-skilled to Directorship level.","pNames":[],"pAddresses":[],"pNumbers":["(117) 244-1963","+0 (117) 244-1963"],"pEmails":["toby.woolf@lutonbennett.co.uk"],"pLinks":["https://www.linkedin.com/company/luton-bennett-limited","https://twitter.com/LutonBennett?lang=en-gb","https://www.boldidentities.com/"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 2, Emails: 1, Links: 3
+
+Result for e@oscar-tech.com, took 1s 911.7032ms
+{"pError":[],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":["+440 (161) 828-8140","(161) 828-8140","(999) 923-5959"],"pEmails":["enquiries@Oscar-Recruit.com"],"pLinks":["https://www.oscar-energy.com/","https://twitter.com/Oscarrecruit","https://www.instagram.com/oscarrecruit/","https://www.linkedin.com/company/oscar","http://enquiries@oscar-recruit.com","https://www.oscar-energy.com","https://oscar-construction.com","https://www.volcanic.co.uk/"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 3, Emails: 1, Links: 8
+
+Result for n@betterplaced.com, took 2s 70.4106ms
+{"pError":[],"sDescription":"Better Placed introduces great candidates to great businesses, something we have been doing for nearly 20 years now. A lot has changed in that time but the fundamentals of what we do remain the same… meeting people, understanding what makes them tick and building our network. Learn More","pNames":[],"pAddresses":[],"pNumbers":["+0 (113) 236-4040"],"pEmails":[],"pLinks":["https://www.linkedin.com/company/better-placed-recruitment","https://twitter.com/BetterPlaced","https://www.facebook.com/Better-Placed-Recruitment-977835688943106/?fref=ts","https://www.instagram.com/better_placed/","http://foreverdigital.co.uk"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 1, Emails: 0, Links: 5
+
+Result for , took 21s 55.4534ms
+{"pError":[{"errno":-4039,"code":"ETIMEDOUT","syscall":"connect","address":"92.242.132.24","port":443}],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":[]}
+Errors: 1, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
+
+Result for notanemail, took 21s 55.0217ms
+{"pError":[{"errno":-4039,"code":"ETIMEDOUT","syscall":"connect","address":"92.242.132.24","port":443}],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":[]}
+Errors: 1, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
+
+Total time taken: 48s 5707.298100000002ms, total names: 2, total addressses: 0, total numbers: 11, total emails: 6, total links: 58
+
+
+Result for tim@canddi.com/doesntexist/, took 0s 303.3213ms
+{"pError":["HTTP error: 404"],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":[]}
+Errors: 1, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
+
+Result for tim@canddi.com, took 0s 502.962ms
+{"pError":[],"sDescription":"See the people and businesses visiting your website with Website Visitor Tracking Software CANDDI. Web User ID Analytics for marketing and lead generation.","pNames":["Tim Langley"],"pAddresses":[{"@type":"PostalAddress","streetAddress":"47 Newton Street","addressLocality":"Manchester","addressRegion":"Manchester","postalCode":"M1 1FT","addressCountry":"GB"}],"pNumbers":["+44 161 414 1080"],"pEmails":["hello@canddi.com"],"pLinks":["https://www.capterra.com/p/178869/CANDDi/","https://www.facebook.com/thisiscanddi","https://twitter.com/CANDDi","https://www.youtube.com/channel/UCU7aljz8YC9IdPfxuxLY39g","https://www.linkedin.com/company/canddi-campaign-and-digital-intelligence-limited-/","https://goo.gl/maps/8bZkNzSKhLz","https://beta.companieshouse.gov.uk/company/07066939","https://ico.org.uk/ESDWebPages/Entry/Z2721392"]}
+Errors: 0, Names: 1, Addresses: 1, Numbers: 1, Emails: 1, Links: 8
+
+Result for l@platform-recruitment.com, took 0s 751.8204ms
+{"pError":[],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":["+0 (208) 445-4577"],"pEmails":[],"pLinks":["https://www.instagram.com/platform_recruitment/","https://www.facebook.com/platformrecruitment/","https://www.linkedin.com/company-beta/1615645/","https://twitter.com/PlatformRecruit"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 1, Emails: 0, Links: 4
+
+Result for n@betterplaced.com, took 0s 824.4163ms
+{"pError":[],"sDescription":"Better Placed introduces great candidates to great businesses, something we have been doing for nearly 20 years now. A lot has changed in that time but the fundamentals of what we do remain the same… meeting people, understanding what makes them tick and building our network. Learn More","pNames":[],"pAddresses":[],"pNumbers":["+0 (113) 236-4040"],"pEmails":[],"pLinks":["https://www.linkedin.com/company/better-placed-recruitment","https://twitter.com/BetterPlaced","https://www.facebook.com/Better-Placed-Recruitment-977835688943106/?fref=ts","https://www.instagram.com/better_placed/","http://foreverdigital.co.uk"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 1, Emails: 0, Links: 5
+
+Result for rp506@reubenpricecs.co.uk, took 0s 843.9092ms
+{"pError":[],"sDescription":"","pNames":["Reuben Price"],"pAddresses":[],"pNumbers":["+0 (749) 743-6588"],"pEmails":["Reuben.Luke.P@Gmail.com"],"pLinks":["http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1400","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1410","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1413","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=ECM1417","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=MTH1001","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2017/index.php/?moduleCode=MTH1002","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM1407","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM1414","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2414","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2418","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2419","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2427","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2433","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2018/index.php/?moduleCode=ECM2434","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM2426","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3401","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3408","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3412","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3423","http://intranet.exeter.ac.uk/emps/studentinfo/subjects/computerscience/modules/2019/index.php/?moduleCode=ECM3426"]}
+Errors: 0, Names: 1, Addresses: 0, Numbers: 1, Emails: 1, Links: 20
+
+Result for n@quintondavies.com, took 0s 897.8857ms
+{"pError":[],"sDescription":"We’re doing something truly different. We’re investing in industry-leading technology that will transform the way we work. Ambitious? Get ahead in a job you love","pNames":[],"pAddresses":[],"pNumbers":["+44 (117) 363-6060","+0 (117) 363-6060"],"pEmails":["admin@quintondavies.com"],"pLinks":["http://www.facebook.com/Quinton-Davies-2068133650101807","https://www.linkedin.com/company/11526173","https://twitter.com/QDJobs"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 2, Emails: 1, Links: 3
+
+Result for o@twitter.com, took 1s 91.6752ms
+{"pError":[],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":["logo46x38@2x.png"],"pLinks":[]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 0, Emails: 1, Links: 0
+
+Result for y@linkedin.com, took 1s 129.3045ms
+{"pError":[],"sDescription":"675 million+ members | Manage your professional identity. Build and engage with your professional network. Access knowledge, insights and opportunities.","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":[]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
+
+Result for r@lutonbennett.co.uk, took 1s 448.008ms
+{"pError":[],"sDescription":"Number 1 Engineering & Technical Recruitment Agency We provide engineering, manufacturing and technical sector recruitment across the UK from semi-skilled to Directorship level.","pNames":[],"pAddresses":[{"@type":"PostalAddress","addressLocality":"Bristol","postalCode":"BS1 5EH","streetAddress":"Orchard Street Business Centre, 13 - 14 Orchard St"}],"pNumbers":["+44 117 905 5005","(117) 244-1963","+0 (117) 244-1963"],"pEmails":["toby.woolf@lutonbennett.co.uk"],"pLinks":["https://www.linkedin.com/company/luton-bennett-limited","https://twitter.com/LutonBennett?lang=en-gb","https://www.boldidentities.com/"]}
+Errors: 0, Names: 0, Addresses: 1, Numbers: 3, Emails: 1, Links: 3
+
+Result for almost@anemail@gmail.com, took 1s 486.935ms
+{"pError":[],"sDescription":"Gmail is email that's intuitive, efficient and useful. 15 GB of storage, less spam and mobile access.","pNames":[],"pAddresses":[],"pNumbers":["(106) 990-2127"],"pEmails":[],"pLinks":["https://accounts.google.com/signin/usernamerecovery?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&ss=1&scc=1&rm=false&osid=1&ltmpl=default&hl=en-GB","https://accounts.google.com/AccountChooser?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&rm=false&ltmpl=default&scc=1&ss=1&osid=1&emr=1","https://accounts.google.com/SignUp?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ltmpl=default","https://www.google.com/intl/en-GB/about","https://accounts.google.com/TOS?loc=GB&hl=en-GB&privacy=true","https://accounts.google.com/TOS?loc=GB&hl=en-GB","http://www.google.com/support/accounts?hl=en-GB"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 1, Emails: 0, Links: 7
+
+Result for e@oscar-tech.com, took 2s 92.7033ms
+{"pError":[],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":["+440 (161) 828-8140","(161) 828-8140","(999) 923-5959"],"pEmails":["enquiries@Oscar-Recruit.com"],"pLinks":["https://www.oscar-energy.com/","https://twitter.com/Oscarrecruit","https://www.instagram.com/oscarrecruit/","https://www.linkedin.com/company/oscar","http://enquiries@oscar-recruit.com","https://www.oscar-energy.com","https://oscar-construction.com","https://www.volcanic.co.uk/"]}
+Errors: 0, Names: 0, Addresses: 0, Numbers: 3, Emails: 1, Links: 8
+
+Result for , took 21s 50.6074ms
+{"pError":[{"errno":-4039,"code":"ETIMEDOUT","syscall":"connect","address":"92.242.132.24","port":443}],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":[]}
+Errors: 1, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
+
+Result for notanemail, took 21s 52.4653ms
+{"pError":[{"errno":-4039,"code":"ETIMEDOUT","syscall":"connect","address":"92.242.132.24","port":443}],"sDescription":"","pNames":[],"pAddresses":[],"pNumbers":[],"pEmails":[],"pLinks":[]}
+Errors: 1, Names: 0, Addresses: 0, Numbers: 0, Emails: 0, Links: 0
+
+Total time taken: 48s 5476.0136ms, total names: 2, total addressses: 2, total numbers: 13, total emails: 6, total links: 58
